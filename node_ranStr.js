@@ -10,7 +10,7 @@ const Config = async () => {
     "name": "节点名结尾生成随机串",
     "description": "只能运行于更新订阅, 手动运行会给你生成一串随机串",
     "type": "Http",
-    "url": "",
+    "url": "https://raw.githubusercontent.com/Daniel7934/singbox-plugins/refs/heads/main/node_ranStr.js",
     "path": Plugin.path ?? "data/plugins/plugin-random-string.js",
     "triggers": [
       "on::subscribe",
