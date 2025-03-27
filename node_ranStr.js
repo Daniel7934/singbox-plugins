@@ -5,12 +5,12 @@
 // <<<<<<<<<<<<结束>>>>>>>>>>>>>
 
 const Config = async () => {
-  const a = {
+  const plugin_config = {
     "id": Plugin.id ?? "plugin-random-string",
     "name": "节点名结尾生成随机串",
     "description": "只能运行于更新订阅, 手动运行会给你生成一串随机串",
     "type": "Http",
-    "uraaal": "https://raw.githubusercontent.com/Daniel7934/singbox-plugins/refs/heads/main/node_ranStr.js",
+    "url": "https://raw.githubusercontent.com/Daniel7934/singbox-plugins/refs/heads/main/node_ranStr.js",
     "path": Plugin.path ?? "data/plugins/plugin-random-string.js",
     "triggers": [
       "on::subscribe",
@@ -49,6 +49,10 @@ const Config = async () => {
     "install": false,
     "installed": false
   }
+  //注入配置文件
+  await Plugins.usePluginsStore().editPlugin(Plugin.id, plugin_config);
+  await Plugins.WindowReloadApp();
+  return 0
 }
 function randStr(length) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; 
